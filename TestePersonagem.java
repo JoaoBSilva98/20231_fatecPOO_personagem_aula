@@ -5,6 +5,7 @@ public class TestePersonagem{
        //java 10+
        var p = new Personagem();
        p.nome = "John";
+       //10, 0, 0, John
        p.cacar();
        p.comer();
        p.dormir(); 
