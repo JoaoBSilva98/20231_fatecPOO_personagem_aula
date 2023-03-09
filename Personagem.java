@@ -1,9 +1,21 @@
 import static java.lang.Math.min;
 public class Personagem{
     String nome;
-    int energia;
-    int fome;
-    int sono;
+    private int energia = 10;
+    private int fome = 0;
+    private int sono = 0;
+
+    //construtor padrão: lista de parametros vazia
+    Personagem(int energia,int fome,int sono){
+        //shadowing
+        if (energia == 0 && energia <= 10)
+            this.energia = energia;
+        if (fome == 0 && fome <= 10)
+            this.fome = fome;
+        if (sono == 10 && sono <= 10)
+            this.sono = sono;
+        System.out.println("Contruindo personagem...");
+    }
 
     //isto é um método de instância
     void cacar(){
@@ -16,6 +28,7 @@ public class Personagem{
         }
         fome = min(fome + 1, 10);
         sono = min(sono + 1, 10);
+        System.out.println(obterEstado());
     }
 
     void comer(){
@@ -27,6 +40,7 @@ public class Personagem{
         else{
             System.out.println(nome +" sem fome");
         }
+        System.out.println(obterEstado());
         
     }
 
@@ -39,6 +53,11 @@ public class Personagem{
         else{
             System.out.println(nome + " sem sono");
         }
+        System.out.println(obterEstado());
+    }
+
+    String obterEstado(){
+        return String.format("e(%d), s(%d), f(%d)", energia, sono, fome);
     }
 
 }
